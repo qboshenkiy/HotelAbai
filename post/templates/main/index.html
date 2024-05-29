@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+      <div class="wrapper">
+        <div class="main-about" id="about">
+          <img src="{% static 'image/398640583.jpg' %}" alt="" width="500" class="img-about" />
+          <div class="main-title">
+            <h1 class="title-main">Park Hotel Bishkek</h1>
+            <div class="box-main-50">
+              Откройте для себя Park Hotel Bishkek- один из самых современных
+              отелей Кыргызстана, в нескольких шагах от Дома Правительства и
+              площади Ала-Тоо, расположенный в культурно-деловом центре Бишкека,
+              Park Hotel Bishkek место, где уделяют особое внимание традициям
+              гостеприимства центральной Азии и создание уюта для каждого гостя.
+              В Park Hotel Bishkek гости могут насладиться комфортом элегантных
+              номеров, восстановить силы, испытав расслабляющие процедуры СПА и
+              совершить гастрономическое путешествие в ресторанах отеля.
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="line" />
+      <div class="wrapper">
+          {% for card in cards|slice:":1" %}
+          <div class="card-row" id="rest">
+            <div class="box-img">
+              <img src="{{ card.image.url }}" alt="" class="card-img" width="648" />
+            </div>
+            <div class="box-card">
+              <div class="text-box">
+                <h1 class="title-card">{{ card.title }} </h1>
+                <p class="text-card">
+                    {{ card.text }}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <hr class="line" />
+      <div class="cards-sect" id="news">
+        {% for post in posts|slice:":3" %}
+          <div class="card">
+              <p class="category">{{ post.category }}</p>
+              <img src="{{ post.image.url }}" alt="" width="400" />
+              <div class="box-card-sect">
+                <h1 class="title-card-sect">{{ post.name }}</h1>
+              </div>
+            </div>
+          {% endfor %}
+      </div>
+      <section class="bron" id="bron">
+        <img
+          src="{% static 'image/csm_baeren-titisee-4-sterne-hotel-schwarzwald-08_392183ccf3.jpg' %}"
+          alt=""
+          class="contacts-img"
+          width="100%"
+        />
+        <div class="form">
+          <div class="form-box">
+            <h1 class="title-form">ОНЛАЙН БРОНИРОВАНИЕ</h1>
+            <form action="{% url 'send_feedback_email' %}" method="post">
+                {% csrf_token %}
+              <input type="text" class="input" placeholder="Введите имя" name="name"/>
+
+              <input
+                type="email"
+                class="input"
+                placeholder="Введите вашу почту"
+                name="email"
+              />
+              <input type="tel" name="phone" class="input" placeholder="Введите ваш номер" />
+              <button type="submit" class="btn-bron">Забронировать</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+
+    <header>
+      <img src="{% static 'image/bg_home4_min.jpg' %}" alt="" class="header-img" />
+      <nav>
+        <ul class="nav-ul">
+          <li class="nav-li"><a href="#about" class="nav-a">О нас</a></li>
+          <li class="nav-li"><a href="#rest" class="nav-a">Рестораны</a></li>
+          <li class="nav-li"><a href="#news" class="nav-a">Новости</a></li>
+        </ul>
+        <img src="{% static 'image/logo-retina.png' %}" alt="" class="logo" />
+        <ul class="nav-ul">
+          <li class="nav-li"><a href="#news" class="nav-a">Мероприятия</a></li>
+          <li class="nav-li"><a href="#footer" class="nav-a">Контакты</a></li>
+          <li class="nav-li">
+            <a href="#bron" class="nav-a">Забронировать</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-box">
+        <div class="main-header">
+          <div class="realeativ">
+            <h1 class="title-header pos">Добро пожаловать</h1>
+            <h1 class="title-header pos2">в PARK HOTEL</h1>
+            <p class="text-header pos3">Комфорт в центре столицы</p>
+            <button class="btn-header pos4">УЗНАТЬ БОЛЬШЕ</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer id="footer">
+        <img src="{% static 'image/logo-retina.png' %}" alt="" width="150">
+      <ul class="footer-ul">
+          <li class="footer li">
+            Кыргызская Республика г.Бишкек ул.Орозбекова 87
+          </li>
+        <li class="footer li">тел: +996 (312) 665518</li>
+        <li class="footer li">тел/whatsapp: +996 (776) 665518</li>
+        <li class="footer li">факс:   +996 (312) 622497</li>
+      </ul>
+    </footer>
+</body>
+</html>
